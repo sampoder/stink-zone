@@ -1,6 +1,4 @@
-{
- "type": "FeatureCollection",
- "features": [
+export default [
   {
    "type": "Feature",
    "properties": {
@@ -6580,4 +6578,3 @@
    }
   }
  ]
-}

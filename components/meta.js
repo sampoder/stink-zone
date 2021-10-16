@@ -5,11 +5,11 @@ const makeTitle = (title, name) =>
   title === name ? title : `${title} – ${name}`
 
 const Meta = ({
-  title = 'Theme Starter', // page title
-  name = 'Theme Starter', // site name
-  description = 'This website was bootstrapped with @lachlanjc’s Next.js Theme Starter.', // page description
-  image = '', // social card image URL
-  url = 'https://next-theme-starter.vercel.app',
+  title = 'Beware the Stinkzone!', // page title
+  name = 'Beware the Stinkzone!', // site name
+  description = 'Locate the nearest durian tree in Singapore and avoid the stinkzone!', // page description
+  image = 'https://cloud-ke7uzuvs0-hack-club-bot.vercel.app/0untitled_design-23.png', // social card image URL
+  url = 'https://stinkzone.sampoder.com',
   children,
 }) => (
   <Head>
@@ -37,7 +37,6 @@ const Meta = ({
         <meta key="tw_img" name="twitter:image" content={image} />
       </>
     )}
-    <meta key="theme_color" name="theme-color" content={theme.colors.primary} />
     <meta
       key="tile_color"
       name="msapplication-TileColor"
