@@ -4,6 +4,8 @@ import times from 'lodash/times'
 import { useEffect, useState } from 'react'
 import durian from '../durian'
 const title = require('title')
+import Head from 'next/head'
+import theme from '../lib/theme'
 
 function measure(lat1, lon1, lat2, lon2) {
   var R = 6378.137
@@ -54,16 +56,16 @@ export default function App() {
       setLowest(lowest)
       setLowestObject(lowestObject)
       if(lowest < 11){
-        setCurrentObject({color: 'maroon', text: 'STINKZONE'})
+        setCurrentObject({color: '#800000', text: 'STINKZONE'})
       }
       if(lowest < 501){
-        setCurrentObject({color: 'red', text: 'DANGER ZONE'})
+        setCurrentObject({color: '#e02200', text: 'DANGER ZONE'})
       }
       if(lowest < 1500){
-        setCurrentObject({color: 'orange', text: 'WARNING ZONE'})
+        setCurrentObject({color: '#ffa500', text: 'WARNING ZONE'})
       }
       else{
-        setCurrentObject({color: 'green', text: 'SAFE ZONE'})
+        setCurrentObject({color: '#0b9e43', text: 'SAFE ZONE'})
       }
     }
     if (navigator.geolocation) {
@@ -87,6 +89,10 @@ export default function App() {
   }
   return (
     <Box sx={{ maxHeight: '100vh', overflow: 'hidden' }}>
+      <Head>
+        <meta key="theme_color" name="theme-color" content={currentState.color} />
+        
+      </Head>
       <Box bg={currentState.color} py={2} px={0}>
         <Marquee key={'0000'} velocity={25}>
           {times(7, Number).map(id => (
