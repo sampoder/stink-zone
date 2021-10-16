@@ -91,11 +91,10 @@ export default function App() {
     <Box sx={{ maxHeight: '100vh', overflow: 'hidden' }}>
       <Head>
         <meta key="theme_color" name="theme-color" content={currentState.color} />
-        
       </Head>
       <Box bg={currentState.color} py={2} px={0}>
         <Marquee key={'0000'} velocity={25}>
-          {times(7, Number).map(id => (
+          {times(20, Number).map(id => (
             <Heading sx={{ fontSize: '8vh', mx: 3 }}>
               <i>{currentState.text}</i>
             </Heading>
@@ -110,10 +109,10 @@ export default function App() {
         }}
       >
         <Box py={2} px={2} sx={{ textAlign: 'center' }}>
-          <Heading sx={{ fontSize: '19vh', mb: 3 }}>{Math.round(lowestState)}m</Heading>
-          <Heading sx={{ fontSize: '6vh', mb: 3 }}>{title(lowestObjectState?.properties?.species_name)}</Heading>
-          <Heading sx={{ fontSize: '6vh', mb: 3 }}>{lowestObjectState?.properties?.height_est}m Tall</Heading>
-          <Heading sx={{ fontSize: '6vh', mb: 3 }}>{lowestObjectState?.properties?.girth_size} Girth</Heading>
+          <Heading sx={{ fontSize: '17vh', mb: 3 }}>{Math.round((lowestState > 3000 ? (lowestState / 1000) : lowestState))}{lowestState > 3000 ? 'km' : 'm'}</Heading>
+          <Heading sx={{ fontSize: '5vh', mb: 3 }}>{title(lowestObjectState?.properties?.species_name)}</Heading>
+          <Heading sx={{ fontSize: '5vh', mb: 3 }}>{lowestObjectState?.properties?.height_est}m Tall</Heading>
+          <Heading sx={{ fontSize: '5vh', mb: 3 }}>{lowestObjectState?.properties?.girth_size} Girth</Heading>
         </Box>
       </Flex>
       <style>
